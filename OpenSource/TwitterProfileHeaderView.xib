@@ -71,7 +71,7 @@
                         <fragment content=" FOLLOWING       ">
                             <attributes>
                                 <color key="NSColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <font key="NSFont" metaFont="system" size="14"/>
+                                <font key="NSFont" metaFont="menu" size="14"/>
                                 <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                             </attributes>
                         </fragment>
@@ -85,7 +85,7 @@
                         <fragment content=" FOLLOWERS">
                             <attributes>
                                 <color key="NSColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <font key="NSFont" metaFont="system" size="14"/>
+                                <font key="NSFont" metaFont="menu" size="14"/>
                                 <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                             </attributes>
                         </fragment>
@@ -110,15 +110,6 @@
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <connections>
-                <outlet property="contentView" destination="rCq-qH-8Tq" id="lRp-ad-udj"/>
-                <outlet property="descriptionLabel" destination="OKX-xY-4zb" id="K9Q-b6-l59"/>
-                <outlet property="iconHeightConstraint" destination="Z4O-AZ-Jhy" id="yKw-en-mam"/>
-                <outlet property="iconImageView" destination="gkt-aO-Ke3" id="N4n-1o-fdq"/>
-                <outlet property="locationLabel" destination="ssS-jj-WGA" id="c84-bo-pX8"/>
-                <outlet property="titleLabel" destination="g72-U6-3c5" id="ZVA-PE-Rcm"/>
-                <outlet property="usernameLabel" destination="jYc-yg-iqa" id="Ir8-JZ-45w"/>
-            </connections>
             <point key="canvasLocation" x="33.5" y="54"/>
         </view>
     </objects>

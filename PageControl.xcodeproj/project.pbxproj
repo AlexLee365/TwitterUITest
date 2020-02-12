@@ -24,6 +24,12 @@
 		C51DDF8F23E2B63800E3976D /* TwitterProfileHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C51DDF8923E2B63800E3976D /* TwitterProfileHeaderView.xib */; };
 		C51DDF9023E2B63800E3976D /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51DDF8A23E2B63800E3976D /* RoundButton.swift */; };
 		C51DDF9223E2B78A00E3976D /* SampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51DDF9123E2B78A00E3976D /* SampleViewController.swift */; };
+		C58D261423E3F55A006CC2E3 /* Extension+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58D261323E3F55A006CC2E3 /* Extension+.swift */; };
+		C58D261723E3F720006CC2E3 /* SingleLineCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58D261623E3F720006CC2E3 /* SingleLineCollectionViewCell.swift */; };
+		C58D261A23E3FC33006CC2E3 /* FirstContentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58D261923E3FC33006CC2E3 /* FirstContentCollectionViewCell.swift */; };
+		C58D261C23E40A1A006CC2E3 /* ColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58D261B23E40A1A006CC2E3 /* ColorView.swift */; };
+		C5FB4B0923F3D1E200D31D5D /* NewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5FB4B0823F3D1E200D31D5D /* NewViewController.swift */; };
+		C5FB4B0D23F3D68100D31D5D /* HorizontalCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5FB4B0C23F3D68100D31D5D /* HorizontalCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +52,12 @@
 		C51DDF8923E2B63800E3976D /* TwitterProfileHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TwitterProfileHeaderView.xib; sourceTree = "<group>"; };
 		C51DDF8A23E2B63800E3976D /* RoundButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
 		C51DDF9123E2B78A00E3976D /* SampleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SampleViewController.swift; sourceTree = "<group>"; };
+		C58D261323E3F55A006CC2E3 /* Extension+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+.swift"; sourceTree = "<group>"; };
+		C58D261623E3F720006CC2E3 /* SingleLineCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleLineCollectionViewCell.swift; sourceTree = "<group>"; };
+		C58D261923E3FC33006CC2E3 /* FirstContentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstContentCollectionViewCell.swift; sourceTree = "<group>"; };
+		C58D261B23E40A1A006CC2E3 /* ColorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorView.swift; sourceTree = "<group>"; };
+		C5FB4B0823F3D1E200D31D5D /* NewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewViewController.swift; sourceTree = "<group>"; };
+		C5FB4B0C23F3D68100D31D5D /* HorizontalCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalCollectionViewCell.swift; sourceTree = "<group>"; };
 		D2B83B813B610EC858904F6B /* Pods-PageControl.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PageControl.debug.xcconfig"; path = "Target Support Files/Pods-PageControl/Pods-PageControl.debug.xcconfig"; sourceTree = "<group>"; };
 		D97B8B212BE8904DD94F66CA /* Pods-PageControl.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PageControl.release.xcconfig"; path = "Target Support Files/Pods-PageControl/Pods-PageControl.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -95,9 +107,12 @@
 			children = (
 				C51DDF6A23E174DD00E3976D /* AppDelegate.swift */,
 				C51DDF6C23E174DD00E3976D /* SceneDelegate.swift */,
-				C51DDF6E23E174DD00E3976D /* ViewController.swift */,
-				C51DDF7E23E175DD00E3976D /* ColorTableViewCell.swift */,
-				C51DDF8023E179C800E3976D /* ContentTableViewCell.swift */,
+				C5FB4B0823F3D1E200D31D5D /* NewViewController.swift */,
+				C5FB4B0C23F3D68100D31D5D /* HorizontalCollectionViewCell.swift */,
+				C5FB4B0723F3D1C200D31D5D /* New Group */,
+				C58D261523E3F6DA006CC2E3 /* Cell */,
+				C58D261823E3FC18006CC2E3 /* Deprecated */,
+				C58D261323E3F55A006CC2E3 /* Extension+.swift */,
 				C51DDF7023E174DD00E3976D /* Main.storyboard */,
 				C51DDF7323E174E000E3976D /* Assets.xcassets */,
 				C51DDF7523E174E000E3976D /* LaunchScreen.storyboard */,
@@ -119,6 +134,33 @@
 				C51DDF8A23E2B63800E3976D /* RoundButton.swift */,
 			);
 			path = OpenSource;
+			sourceTree = "<group>";
+		};
+		C58D261523E3F6DA006CC2E3 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				C58D261923E3FC33006CC2E3 /* FirstContentCollectionViewCell.swift */,
+				C58D261623E3F720006CC2E3 /* SingleLineCollectionViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		C58D261823E3FC18006CC2E3 /* Deprecated */ = {
+			isa = PBXGroup;
+			children = (
+				C51DDF7E23E175DD00E3976D /* ColorTableViewCell.swift */,
+				C51DDF8023E179C800E3976D /* ContentTableViewCell.swift */,
+			);
+			path = Deprecated;
+			sourceTree = "<group>";
+		};
+		C5FB4B0723F3D1C200D31D5D /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+				C58D261B23E40A1A006CC2E3 /* ColorView.swift */,
+				C51DDF6E23E174DD00E3976D /* ViewController.swift */,
+			);
+			path = "New Group";
 			sourceTree = "<group>";
 		};
 		F199480A5F334AD263F0AE52 /* Frameworks */ = {
@@ -247,14 +289,20 @@
 			files = (
 				C51DDF8423E2B5EF00E3976D /* TwitterProfileViewController.swift in Sources */,
 				C51DDF8E23E2B63800E3976D /* Bundle+Pod.swift in Sources */,
+				C5FB4B0923F3D1E200D31D5D /* NewViewController.swift in Sources */,
+				C58D261723E3F720006CC2E3 /* SingleLineCollectionViewCell.swift in Sources */,
+				C58D261423E3F55A006CC2E3 /* Extension+.swift in Sources */,
+				C58D261C23E40A1A006CC2E3 /* ColorView.swift in Sources */,
 				C51DDF9223E2B78A00E3976D /* SampleViewController.swift in Sources */,
 				C51DDF8C23E2B63800E3976D /* TwitterProfileHeaderView.swift in Sources */,
 				C51DDF6F23E174DD00E3976D /* ViewController.swift in Sources */,
 				C51DDF9023E2B63800E3976D /* RoundButton.swift in Sources */,
+				C5FB4B0D23F3D68100D31D5D /* HorizontalCollectionViewCell.swift in Sources */,
 				C51DDF7F23E175DD00E3976D /* ColorTableViewCell.swift in Sources */,
 				C51DDF6B23E174DD00E3976D /* AppDelegate.swift in Sources */,
 				C51DDF6D23E174DD00E3976D /* SceneDelegate.swift in Sources */,
 				C51DDF8123E179C800E3976D /* ContentTableViewCell.swift in Sources */,
+				C58D261A23E3FC33006CC2E3 /* FirstContentCollectionViewCell.swift in Sources */,
 				C51DDF8B23E2B63800E3976D /* ProfileIconView.swift in Sources */,
 				C51DDF8D23E2B63800E3976D /* TouchRespondScrollView.swift in Sources */,
 			);

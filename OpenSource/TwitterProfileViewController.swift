@@ -8,6 +8,8 @@
 
 import UIKit
 import SnapKit
+import RxCocoa
+import RxSwift
 
 open class TwitterProfileViewController: UIViewController {
 
@@ -33,7 +35,7 @@ open class TwitterProfileViewController: UIViewController {
 
     open var username: String? {
         didSet {
-            self.profileHeaderView?.titleLabel?.text = username
+//            self.profileHeaderView?.titleLabel?.text = username
 
             self.navigationTitleLabel?.text = username
         }
@@ -41,19 +43,19 @@ open class TwitterProfileViewController: UIViewController {
 
     open var profileImage: UIImage? {
         didSet {
-            self.profileHeaderView?.iconImageView?.image = profileImage
+//            self.profileHeaderView?.iconImageView?.image = profileImage
         }
     }
 
     open var locationString: String? {
         didSet {
-            self.profileHeaderView?.locationLabel?.text = locationString
+//            self.profileHeaderView?.locationLabel?.text = locationString
         }
     }
 
     open var descriptionString: String? {
         didSet {
-            self.profileHeaderView?.descriptionLabel?.text = descriptionString
+//            self.profileHeaderView?.descriptionLabel?.text = descriptionString
         }
     }
 
@@ -99,6 +101,8 @@ open class TwitterProfileViewController: UIViewController {
 
     var shouldUpdateScrollViewContentFrame = false
 
+    private var disposeBag = DisposeBag()
+
     deinit {
         self.scrollViews.forEach { (scrollView) in
             scrollView.removeFromSuperview()
@@ -118,20 +122,35 @@ open class TwitterProfileViewController: UIViewController {
         self.prepareViews()
 
         shouldUpdateScrollViewContentFrame = true
+
+        mainScrollView.rx.contentOffset.map { $0.y }
+            .subscribe(onNext: { y in
+                print("mainScrollView y: ", y)
+            })
+            .disposed(by: disposeBag)
+
+        if let firstScrollView = scrollViews.first {
+            print("firstScrollView: ", firstScrollView)
+            firstScrollView.rx.contentOffset.map { $0.y }
+                .subscribe(onNext: { y in
+                    print("tableView y: ", y)
+                })
+                .disposed(by: disposeBag)
+        }
     }
 
     override open func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
 
-        print(profileHeaderView.sizeThatFits(self.mainScrollView.bounds.size))
-        self.profileHeaderViewHeight = profileHeaderView.sizeThatFits(self.mainScrollView.bounds.size).height
+//        print(profileHeaderView.sizeThatFits(self.mainScrollView.bounds.size))
+//        self.profileHeaderViewHeight = profileHeaderView.sizeThatFits(self.mainScrollView.bounds.size).height
 
         if self.shouldUpdateScrollViewContentFrame {
 
             // configure layout frames
             self.stickyHeaderContainerView.frame = self.computeStickyHeaderContainerViewFrame()
 
-            self.profileHeaderView.frame = self.computeProfileHeaderViewFrame()
+//            self.profileHeaderView.frame = self.computeProfileHeaderViewFrame()
 
             self.segmentedControlContainer.frame = self.computeSegmentedControlContainerFrame()
 
@@ -245,14 +264,18 @@ extension TwitterProfileViewController {
 
         // ProfileHeaderView
 
-        if let profileHeaderView = Bundle.bundleFromPod()?.loadNibNamed("TwitterProfileHeaderView", owner: self, options: nil)?.first as? TwitterProfileHeaderView {
-            mainScrollView.addSubview(profileHeaderView)
-            self.profileHeaderView = profileHeaderView
+//        if let profileHeaderView = Bundle.bundleFromPod()?.loadNibNamed("TwitterProfileHeaderView", owner: self, options: nil)?.first as? TwitterProfileHeaderView {
+//            mainScrollView.addSubview(profileHeaderView)
+//            self.profileHeaderView = profileHeaderView
 
-            self.profileHeaderView.usernameLabel.text = self.username
-            self.profileHeaderView.locationLabel.text = self.locationString
-            self.profileHeaderView.iconImageView.image = self.profileImage
-        }
+//            self.profileHeaderView.usernameLabel.text = self.username
+//            self.profileHeaderView.locationLabel.text = self.locationString
+//            self.profileHeaderView.iconImageView.image = self.profileImage
+//        }
+
+        let profileHeaderView = TwitterProfileHeaderView()
+        mainScrollView.addSubview(profileHeaderView)
+        self.profileHeaderView = profileHeaderView
 
 
         // Segmented Control Container
@@ -402,16 +425,16 @@ extension TwitterProfileViewController: UIScrollViewDelegate {
 
             // Override
             // When scroll View reached the top edge of Title label
-            if let titleLabel = profileHeaderView.titleLabel, let usernameLabel = profileHeaderView.usernameLabel  {
-
-                // titleLabel location relative to self.view
-                let titleLabelLocationY = stickyheaderContainerViewHeight - 35
-
-                let totalHeight = titleLabel.bounds.height + usernameLabel.bounds.height + 35
-                let detailProgress = max(0, min((contentOffset.y - titleLabelLocationY) / totalHeight, 1))
-                blurEffectView.alpha = detailProgress
-                animateNaivationTitleAt(progress: detailProgress)
-            }
+//            if let titleLabel = profileHeaderView.titleLabel, let usernameLabel = profileHeaderView.usernameLabel  {
+//
+//                // titleLabel location relative to self.view
+//                let titleLabelLocationY = stickyheaderContainerViewHeight - 35
+//
+//                let totalHeight = titleLabel.bounds.height + usernameLabel.bounds.height + 35
+//                let detailProgress = max(0, min((contentOffset.y - titleLabelLocationY) / totalHeight, 1))
+//                blurEffectView.alpha = detailProgress
+//                animateNaivationTitleAt(progress: detailProgress)
+//            }
         }
         // Segmented control is always on top in any situations
         self.mainScrollView.bringSubviewToFront(segmentedControlContainer)

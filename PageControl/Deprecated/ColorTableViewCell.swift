@@ -35,16 +35,3 @@ class ColorTableViewCell: UITableViewCell {
         self.titleLabel.text = title
     }
 }
-
-
-
-
-extension UITableView {
-    func g_registerCellClass(cellType: UITableViewCell.Type) {
-        self.register(cellType, forCellReuseIdentifier: "\(cellType)")
-    }
-
-    func g_dequeueReusableCell<T: UITableViewCell>(cellType: T.Type, indexPath: IndexPath) -> T {
-        return self.dequeueReusableCell(withIdentifier: "\(cellType)", for: indexPath) as! T
-    }
-}
