@@ -11,6 +11,11 @@ import SnapKit
 import Parchment
 import UIKit
 
+protocol PageControlProtocol {
+    var verticalScrollView: UIScrollView { get }
+    var isHeaderViewFixed: Bool { get set }
+}
+
 class ParchmentViewController: UIViewController {
 
     let array = [TableViewController(), TableViewController(), TableViewController()]
@@ -84,7 +89,7 @@ extension ParchmentViewController: PagingViewControllerDataSource {
     }
 
     func pagingViewController(_: PagingViewController, pagingItemAt index: Int) -> PagingItem {
-        return PagingIndexItem(index: index, title: "title \(index)")
+        return PagingIndexItem(index: index, title: "Title \(index)")
     }
 
 
@@ -93,46 +98,35 @@ extension ParchmentViewController: PagingViewControllerDataSource {
 extension ParchmentViewController: PagingViewControllerDelegate {
 
     func pagingViewController(_ pagingViewController: PagingViewController, didScrollToItem pagingItem: PagingItem, startingViewController: UIViewController?, destinationViewController: UIViewController, transitionSuccessful: Bool) {
-        guard let startingViewController = startingViewController as? TableViewController,
-              let destinationViewController = destinationViewController as? TableViewController else {
-                return
-        }
-
-        // Set the delegate on the currently selected view so that we can
-        // listen to the scroll view delegate.
-        if transitionSuccessful {
-            startingViewController.tableView.delegate = nil
-            destinationViewController.tableView.delegate = self
-        }
-
         currentIndex = pagingViewController.visibleItems.indexPath(for: pagingItem)?.row ?? 0
         print("current Index: ", currentIndex)
+
     }
 
     func pagingViewController(_: PagingViewController, willScrollToItem pagingItem: PagingItem, startingViewController: UIViewController, destinationViewController: UIViewController) {
-        guard let startingViewController = startingViewController as? TableViewController,
-              let destinationViewController = destinationViewController as? TableViewController else {
+        guard let startingViewController = startingViewController as? PageControlProtocol,
+              var destinationViewController = destinationViewController as? PageControlProtocol else {
                 return
         }
+
         print("---------------------------[]---------------------------")
+        print("destination's content y: ", destinationViewController.verticalScrollView.contentOffset.y)
 
-        print("destination's content y: ", destinationViewController.tableView.contentOffset.y)
 
-
-        if !startingViewController.isHeaderViewSet {
+        if !startingViewController.isHeaderViewFixed {
             print("헤더가 조정되고있으므로 현재 포인트로 통일시킵니다.")
             let offset = min(-50, currentYOffset)
-            destinationViewController.tableView.contentOffset.y = offset
-            destinationViewController.isHeaderViewSet = false
+            destinationViewController.verticalScrollView.contentOffset.y = offset
+            destinationViewController.isHeaderViewFixed = false
 
-        } else if destinationViewController.isHeaderViewSet != startingViewController.isHeaderViewSet {
+        } else if destinationViewController.isHeaderViewFixed != startingViewController.isHeaderViewFixed {
             print("헤더가 고정된 상태인데, 다음 테이블뷰는 고정되지않았으므로 고정된 포인트로 통일시킵니다.")
             let offset = min(-50, currentYOffset)
-            destinationViewController.tableView.contentOffset.y = offset
-            destinationViewController.isHeaderViewSet = true
+            destinationViewController.verticalScrollView.contentOffset.y = offset
+            destinationViewController.isHeaderViewFixed = true
         }
 
-        print("destination isHeaderViewSet: ", destinationViewController.isHeaderViewSet)
+        print("destination isHeaderViewSet: ", destinationViewController.isHeaderViewFixed)
     }
 
 }
@@ -141,9 +135,9 @@ extension ParchmentViewController: UITableViewDelegate {
 
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if scrollView.contentOffset.y < -50 {
-            array[currentIndex].isHeaderViewSet = false
+            array[currentIndex].isHeaderViewFixed = false
         } else {
-            array[currentIndex].isHeaderViewSet = true
+            array[currentIndex].isHeaderViewFixed = true
         }
 
 
@@ -205,9 +199,8 @@ class CustomPagingView: PagingView {
             self.headerViewTopConstraint = $0.top.equalTo(self).constraint
         }
 
-        let panGesture = UIPanGestureRecognizer()
-        headerView.addGestureRecognizer(panGesture)
-        headerView.isUserInteractionEnabled = true
+
+//        headerView.addGestureRecognizer(tapGesture)
 
         pageView.snp.makeConstraints {
             $0.edges.equalTo(self)
@@ -225,15 +218,18 @@ class CustomPagingViewController: PagingViewController {
             pageView: pageViewController.view
         )
     }
+
+    
 }
 
 
 // MARK: - TableViewController
 // =================================== ===================================
-class TableViewController: UITableViewController {
+class TableViewController: UITableViewController, PageControlProtocol {
     private static let CellIdentifier = "CellIdentifier"
 
-    var isHeaderViewSet = false
+    lazy var verticalScrollView: UIScrollView = tableView
+    var isHeaderViewFixed = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
