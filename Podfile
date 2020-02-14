@@ -10,5 +10,6 @@ target 'PageControl' do
   pod 'SnapKit'
   pod 'RxSwift'
   pod 'RxCocoa'
+  pod 'Parchment'
 
 end

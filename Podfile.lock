@@ -1,4 +1,5 @@
 PODS:
+  - Parchment (2.0.1)
   - RxCocoa (5.0.1):
     - RxRelay (~> 5)
     - RxSwift (~> 5)
@@ -8,23 +9,26 @@ PODS:
   - SnapKit (5.0.1)
 
 DEPENDENCIES:
+  - Parchment
   - RxCocoa
   - RxSwift
   - SnapKit
 
 SPEC REPOS:
   trunk:
+    - Parchment
     - RxCocoa
     - RxRelay
     - RxSwift
     - SnapKit
 
 SPEC CHECKSUMS:
+  Parchment: 00cb7d0d0a38f5a4a7e089ec59637b970a58c0f0
   RxCocoa: e741b9749968e8a143e2b787f1dfbff2b63d0a5c
   RxRelay: 89d54507f4fd4d969e6ec1d4bd7f3673640b4640
   RxSwift: e2dc62b366a3adf6a0be44ba9f405efd4c94e0c4
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
 
-PODFILE CHECKSUM: 2ecef98361cc0ae6060ddc8e711ada7bcef957e3
+PODFILE CHECKSUM: 97be5679bb8e196e2468e0d80b2a26203085f365
 
 COCOAPODS: 1.8.4

@@ -24,6 +24,7 @@
 		C51DDF8F23E2B63800E3976D /* TwitterProfileHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C51DDF8923E2B63800E3976D /* TwitterProfileHeaderView.xib */; };
 		C51DDF9023E2B63800E3976D /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51DDF8A23E2B63800E3976D /* RoundButton.swift */; };
 		C51DDF9223E2B78A00E3976D /* SampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51DDF9123E2B78A00E3976D /* SampleViewController.swift */; };
+		C5808AF723F532AA00787DE5 /* ParchmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5808AF623F532AA00787DE5 /* ParchmentViewController.swift */; };
 		C58D261423E3F55A006CC2E3 /* Extension+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58D261323E3F55A006CC2E3 /* Extension+.swift */; };
 		C58D261723E3F720006CC2E3 /* SingleLineCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58D261623E3F720006CC2E3 /* SingleLineCollectionViewCell.swift */; };
 		C58D261A23E3FC33006CC2E3 /* FirstContentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58D261923E3FC33006CC2E3 /* FirstContentCollectionViewCell.swift */; };
@@ -52,6 +53,7 @@
 		C51DDF8923E2B63800E3976D /* TwitterProfileHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TwitterProfileHeaderView.xib; sourceTree = "<group>"; };
 		C51DDF8A23E2B63800E3976D /* RoundButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
 		C51DDF9123E2B78A00E3976D /* SampleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SampleViewController.swift; sourceTree = "<group>"; };
+		C5808AF623F532AA00787DE5 /* ParchmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParchmentViewController.swift; sourceTree = "<group>"; };
 		C58D261323E3F55A006CC2E3 /* Extension+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+.swift"; sourceTree = "<group>"; };
 		C58D261623E3F720006CC2E3 /* SingleLineCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleLineCollectionViewCell.swift; sourceTree = "<group>"; };
 		C58D261923E3FC33006CC2E3 /* FirstContentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstContentCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 			children = (
 				C51DDF6A23E174DD00E3976D /* AppDelegate.swift */,
 				C51DDF6C23E174DD00E3976D /* SceneDelegate.swift */,
+				C5808AF623F532AA00787DE5 /* ParchmentViewController.swift */,
 				C5FB4B0823F3D1E200D31D5D /* NewViewController.swift */,
 				C5FB4B0C23F3D68100D31D5D /* HorizontalCollectionViewCell.swift */,
 				C5FB4B0723F3D1C200D31D5D /* New Group */,
@@ -293,6 +296,7 @@
 				C58D261723E3F720006CC2E3 /* SingleLineCollectionViewCell.swift in Sources */,
 				C58D261423E3F55A006CC2E3 /* Extension+.swift in Sources */,
 				C58D261C23E40A1A006CC2E3 /* ColorView.swift in Sources */,
+				C5808AF723F532AA00787DE5 /* ParchmentViewController.swift in Sources */,
 				C51DDF9223E2B78A00E3976D /* SampleViewController.swift in Sources */,
 				C51DDF8C23E2B63800E3976D /* TwitterProfileHeaderView.swift in Sources */,
 				C51DDF6F23E174DD00E3976D /* ViewController.swift in Sources */,

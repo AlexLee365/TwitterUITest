@@ -6,6 +6,7 @@
 //  Copyright © 2020 AlexLee_Dev. All rights reserved.
 //
 
+import SnapKit
 import RxCocoa
 import RxSwift
 import UIKit
@@ -36,22 +37,22 @@ class NewViewController: UIViewController {
 
                 self?.currentTabSubject.onNext(tabNumber)
 
-                print("🔴 current Tab: ", strongself.currentTab)
+                print("---------------------------[current Tab: \(strongself.currentTab) ]---------------------------")
             })
             .disposed(by: disposeBag)
 
 
 
         NotificationCenter.default.rx.notification(.contentUp)
-            .flatMap { noti -> Observable<CGFloat> in
-                guard let yOffset = noti.userInfo?["yOffset"] as? CGFloat else {
+            .flatMap { noti -> Observable<(CGFloat, Direction.Vertical)> in
+                guard let scrolledInfo = noti.object as? (CGFloat, Direction.Vertical) else {
                     return .empty()
                 }
 //                    yOffset <= HorizontalCollectionViewCell.headerHeight
 
-                return Observable.just(yOffset)
+                return Observable.just(scrolledInfo)
             }
-            .subscribe(onNext: { [weak self] yOffset in
+            .subscribe(onNext: { [weak self] yOffset, _ in
                 guard let strongself = self else{ return }
                 let offset = min(yOffset, HorizontalCollectionViewCell.headerHeight - 80)
 
